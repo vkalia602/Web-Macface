@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>React App</title>
+    <%- include('header') -%>
+    <div id="root"><%- content %> </div>
+    <%- include('footer') -%>
+  </head>
+  <body>
+    <script src="/bundle.js" charset="utf-8"></script>
+    <p>Hello world 
+      <%= Math.random() %> 
+    </p>
+  </body>
+</html>

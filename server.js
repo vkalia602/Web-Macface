@@ -1,18 +1,17 @@
 const express = require('express');
 const app = express();
+const router = require('./api');
 const hostname = '127.0.0.1';
 const port = 3000;
 
-app.get('/', function (req, res) {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.send('<h1>Hello Vasudha</h1>');
+app.set('view engine', 'ejs');
+app.get('/', (req, res) => {
+  res.render('index', {
+    content: 'Hello express and EJS'
+  });
 });
-
-app.get('/about', function (req, res) {
-  res.send('<h1>About Page</h1>');
-});
-
+app.use(express.static('public'));
+app.use('/api', router);
 app.listen(port, hostname, () => {
   console.log('Server running at http://%s:%s/', hostname, port);
 });
